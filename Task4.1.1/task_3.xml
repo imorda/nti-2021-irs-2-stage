@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root version="20190819">
+    <world>
+        <walls>
+            <wall fill="#ff000000" id="{8e25c8d2-8a99-45fe-b6dc-d4ce4a1d8e72}" end="100:-200" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="-100:-200"/>
+            <wall fill="#ff000000" id="{580b0b1c-2e68-4760-966f-471a3bf0cfdf}" end="150:-250" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="100:-200"/>
+            <wall fill="#ff000000" id="{3318503c-e3dc-4075-9960-7fc4dc36580c}" end="200:-250" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="150:-250"/>
+            <wall fill="#ff000000" id="{517317f2-9c59-41b6-af80-c229721ff73d}" end="250:-250" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="200:-250"/>
+            <wall fill="#ff000000" id="{95cd0780-a287-4aff-a059-426395cf89c9}" end="300:-200" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="250:-250"/>
+            <wall fill="#ff000000" id="{c26adff7-544f-4127-9e39-ca4eaa8605e9}" end="350:-200" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="300:-200"/>
+            <wall fill="#ff000000" id="{a215ae83-18a1-4dcc-aa5f-31f4bfb6b243}" end="400:-250" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="350:-200"/>
+            <wall fill="#ff000000" id="{f4965d6c-7483-43ec-a6d6-8cce445f72ce}" end="500:-250" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="400:-250"/>
+            <wall fill="#ff000000" id="{9b9892f2-6b5e-4718-969c-037dc3cd167f}" end="550:-200" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="500:-250"/>
+            <wall fill="#ff000000" id="{69124353-73db-4e64-8e35-8af9abbc3785}" end="600:-200" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="550:-200"/>
+            <wall fill="#ff000000" id="{96b0442b-2692-47bf-8d4d-18955fe20259}" end="650:-250" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="600:-200"/>
+            <wall fill="#ff000000" id="{79d566b5-9b3c-458e-b1c8-8edc868fca8c}" end="750:-250" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="650:-250"/>
+            <wall fill="#ff000000" id="{c16508b1-9763-41fc-8701-d623bac72e89}" end="800:-200" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="750:-250"/>
+            <wall fill="#ff000000" id="{115d2240-53ac-4a5b-95ee-56e5d92149c1}" end="850:-200" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="800:-200"/>
+            <wall fill="#ff000000" id="{d1d4e684-db38-4b1e-a4ad-86d8a329e48f}" end="900:-250" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="850:-200"/>
+            <wall fill="#ff000000" id="{93df4641-2f13-4f2c-9977-399342870a4a}" end="1000:-250" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="900:-250"/>
+            <wall fill="#ff000000" id="{faa9e080-a2e9-4453-a145-1bc865a3bf10}" end="1050:-200" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="1000:-250"/>
+            <wall fill="#ff000000" id="{bacbb94d-8144-433f-8007-afa7a42af0d6}" end="1200:-200" stroke="#ff000000" stroke-width="5" stroke-style="none" begin="1050:-200"/>
+        </walls>
+        <skittles/>
+        <balls/>
+        <colorFields/>
+        <images/>
+        <regions>
+            <region height="66" x="1150" id="finish" width="60" textY="5" text="Финиш" visible="true" type="rectangle" y="-145" filled="true" color="#ff0000" textX="6"/>
+            <region height="56" x="0" id="start" width="56" textY="0" text="Старт" visible="true" type="rectangle" y="0" filled="true" color="#0000ff" textX="0"/>
+        </regions>
+    </world>
+    <robots>
+        <robot direction="0" id="trikKitRobot" position="0:0">
+            <sensors>
+                <sensor port="D1###input######sensorD1" type="trik::robotModel::parts::TrikSonarSensor" position="60:-5" direction="-45"/>
+            </sensors>
+            <startPosition direction="0" x="25" id="{12a27672-9a11-45ac-9622-af3e67d5bd32}" y="25"/>
+            <wheels right="M3###output###М3###" left="M4###output###М4###"/>
+        </robot>
+    </robots>
+    <settings realisticMotors="true" realisticSensors="true" realisticPhysics="true"/>
+    <constraints>
+        <timelimit value="240000"/>
+        <constraint checkOnce="true" failMessage="У робота не должно быть датчиков, кроме датчика расстояния в порту D1">
+            <conditions glue="and">
+                <equals>
+                    <typeOf objectId="robot1.A1"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.A2"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.A3"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.A4"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.A5"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.A6"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.F1"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.D2"/>
+                    <string value="undefined"/>
+                </equals>
+            </conditions>
+        </constraint>
+        <constraint checkOnce="true" failMessage="Робот должен находиться в зоне старта перед запуском!">
+            <inside regionId="start" objectId="robot1"/>
+        </constraint>
+        <!-- <event settedUpInitially="true">
+			<conditions glue = "and">
+				<not><inside objectId="robot1" regionId="finish"/></not>
+				<greater>
+					<objectState object="robot1.display.labels.size"/>
+					<int value="0"/>
+				</greater>
+				<equals>
+					<objectState object="robot1.display.labels.first.text"/>
+					<string value="finish"/>
+				</equals>
+			</conditions>
+			<trigger>
+				<fail message="Робот финишировал не в зоне финиша"/>
+			</trigger>
+		</event> -->
+        <event settedUpInitially="true">
+            <conditions glue="and">
+                <inside regionId="finish" objectId="robot1"/>
+            </conditions>
+            <trigger>
+                <success/>
+            </trigger>
+        </event>
+    </constraints>
+</root>

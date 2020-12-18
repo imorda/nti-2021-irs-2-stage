@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root version="20190819">
+    <world>
+        <walls>
+            <wall begin="0:0" end="1600:0" stroke-style="none" fill="#ff000000" stroke-width="10" id="{490f0bd4-c78e-42e2-8071-a419dd3fa016}" stroke="#ff000000"/>
+            <wall begin="0:0" end="0:1600" stroke-style="none" fill="#ff000000" stroke-width="10" id="{7972d3f4-62b8-44db-bc8e-7b63aac8a3e3}" stroke="#ff000000"/>
+            <wall begin="0:1600" end="1600:1600" stroke-style="none" fill="#ff000000" stroke-width="10" id="{d0e89efb-3303-4011-91d1-352f0a5d35cb}" stroke="#ff000000"/>
+            <wall begin="1600:0" end="1600:1600" stroke-style="none" fill="#ff000000" stroke-width="10" id="{9726fbf0-aa40-4a31-931d-29ea4ee823a8}" stroke="#ff000000"/>
+            <wall begin="400:600" end="600:600" stroke-style="none" fill="#ff000000" stroke-width="10" id="{0}" stroke="#ff000000"/>
+           <wall begin="400:800" end="600:800" stroke-style="none" fill="#ff000000" stroke-width="10" id="{132}" stroke="#ff000000"/>
+           <wall begin="400:600" end="400:800" stroke-style="none" fill="#ff000000" stroke-width="10" id="{266}" stroke="#ff000000"/>
+          <wall begin="600:600" end="600:800" stroke-style="none" fill="#ff000000" stroke-width="10" id="{399}" stroke="#ff000000"/>
+            <wall begin="800:600" end="1000:600" stroke-style="none" fill="#ff000000" stroke-width="10" id="{534}" stroke="#ff000000"/>
+           <wall begin="800:800" end="1000:800" stroke-style="none" fill="#ff000000" stroke-width="10" id="{669}" stroke="#ff000000"/>
+           <wall begin="800:600" end="800:800" stroke-style="none" fill="#ff000000" stroke-width="10" id="{804}" stroke="#ff000000"/>
+          <wall begin="1000:600" end="1000:800" stroke-style="none" fill="#ff000000" stroke-width="10" id="{937}" stroke="#ff000000"/>
+            
+        </walls>
+        <skittles/>
+        <balls/>
+        <colorFields/>
+        <images/>
+        <regions/>
+    </world>
+    <robots>
+        <robot direction="0" position="1075:275" id="trikKitRobot">
+            <sensors>
+                <sensor direction="90" type="trik::robotModel::parts::TrikInfraredSensor" position="25:25" port="A2###input###А2###sensorA2"/>
+                <sensor direction="-90" type="trik::robotModel::parts::TrikInfraredSensor" position="25:25" port="A1###input###А1###sensorA1"/>
+                <sensor direction="0" type="trik::robotModel::parts::TrikSonarSensor" position="25:25" port="D1###input######sensorD1"/>
+                <sensor direction="180" type="trik::robotModel::parts::TrikSonarSensor" position="25:25" port="D2###input######sensorD2"/>
+            </sensors>
+            <startPosition direction="0" y="300" x="1100" id="{471c6e9d-299c-4bcb-aa2d-13e5fe4a6ddb}"/>
+            <wheels right="M3###output###М3###" left="M4###output###М4###"/>
+        </robot>
+    </robots>
+    <settings realisticMotors="false" realisticPhysics="false" realisticSensors="false"/>
+    <constraints>
+        <timelimit value="48000000"/>
+        <constraint checkOnce="true" failMessage="У робота не должно быть лишних датчиков!">
+            <conditions glue="and">
+                <equals>
+                    <typeOf objectId="robot1.A3"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.A4"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.A5"/>
+                    <string value="undefined"/>
+                </equals>
+                <equals>
+                    <typeOf objectId="robot1.A6"/>
+                    <string value="undefined"/>
+                </equals>
+            </conditions>
+        </constraint>
+        
+        <event settedUpInitially="true">
+            <conditions glue="and">
+                <greater>
+                    <objectState object="robot1.display.labels.size"/>
+                    <int value="0"/>
+                </greater>
+                <greater>
+                    <objectState object="robot1.display.labels.first.text"/>
+                    <string value="135"/>
+                </greater>
+                <less>
+                    <objectState object="robot1.display.labels.first.text"/>
+                    <string value="140"/>
+                </less>
+            </conditions>
+            <trigger>
+                
+                <success/>
+            </trigger>
+        </event>
+        <event settedUpInitially="true">
+            <conditions glue="and">
+                <greater>
+                    <objectState object="robot1.display.labels.size"/>
+                    <int value="0"/>
+                </greater>
+                <not>
+                    <conditions glue="and">
+                        <greater>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <string value="135"/>
+                        </greater>
+                        <less>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <string value="140"/>
+                        </less>
+                    </conditions>
+                </not>
+            </conditions>
+            <trigger>
+                <fail message="Неверный ответ!"/>
+            </trigger>
+        </event>
+    </constraints>
+</root>

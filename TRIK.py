@@ -1,7 +1,4 @@
-from enum import Enum
-
-
-class KeysEnum(Enum):
+class KeysEnum:
     Left = 105
     Up = 103
     Down = 108
@@ -705,22 +702,24 @@ class brick:
     """
     Объект «brick» представляет контроллер ТРИК и предоставляет доступ к устройствам робота.
     """
-
-    def accelerometer(self) -> Accelerometer:
+    @classmethod
+    def accelerometer(cls) -> Accelerometer:
         """
         Предоставляет доступ к акселерометру
         :return: Gyroscope class
         """
         return Accelerometer()
 
-    def battery(self) -> Battery:
+    @classmethod
+    def battery(cls) -> Battery:
         """
         Предоставляет доступ к информации об аккумуляторе
         :return: Battery class
         """
         return Battery()
 
-    def colorSensor(self, id: str) -> colorSensor:
+    @classmethod
+    def colorSensor(cls, id: str) -> colorSensor:
         """
         Предоставляет доступ к датчику цвета по видеокамере.
         :param id: port id
@@ -729,14 +728,16 @@ class brick:
         """
         return colorSensor(id)
 
-    def display(self) -> Display:
+    @classmethod
+    def display(cls) -> Display:
         """
         Предоставляет доступ к дисплею робота.
         :return: Display class
         """
         return Display()
 
-    def encoder(self, portName: str) -> Encoder:
+    @classmethod
+    def encoder(cls, portName: str) -> Encoder:
         """
         Предоставляет доступ к энкодеру на указанном порту.
         :param portName: порт
@@ -744,35 +745,40 @@ class brick:
         """
         return Encoder(portName)
 
-    def getStillImage(self) -> list:
+    @classmethod
+    def getStillImage(cls) -> list:
         """
         Получить фотографию с камеры в виде массива байт.
         :return: массив байт, составляющий фотографию с камеры
         """
         return list()
 
-    def gyroscope(self) -> Gyroscope:
+    @classmethod
+    def gyroscope(cls) -> Gyroscope:
         """
         Предоставляет доступ к гироскопу
         :return: Gyroscope class
         """
         return Gyroscope()
 
-    def keys(self) -> Keys:
+    @classmethod
+    def keys(cls) -> Keys:
         """
         Предоставляет доступ к кнопкам на корпусе робота
         :return: Keys class
         """
         return Keys()
 
-    def led(self) -> Led:
+    @classmethod
+    def led(cls) -> Led:
         """
         Предоставляет доступ к светодиоду на корпусе робота
         :return: Led class
         """
         return Led()
 
-    def lineSensor(self, port: str) -> LineSensor:
+    @classmethod
+    def lineSensor(cls, port: str) -> LineSensor:
         """
         Предоставляет доступ к датчику линии по видеокамере
         :param port: port id ("video1"/"video2")
@@ -780,7 +786,8 @@ class brick:
         """
         return LineSensor(port)
 
-    def motor(self, port: str) -> Motor:
+    @classmethod
+    def motor(cls, port: str) -> Motor:
         """
         Предоставляет доступ к мотору (силовому или сервомотору) на указанном порту.
         :param port: В качестве параметра необходимо указать порт.
@@ -788,14 +795,16 @@ class brick:
         """
         return Motor(port)
 
-    def objectSensor(self) -> ObjectSensor:
+    @classmethod
+    def objectSensor(cls) -> ObjectSensor:
         """
         Предоставляет доступ к датчику объекта по видеокамере
         :return: ObjectSensor class
         """
         return ObjectSensor()
 
-    def playSound(self, filename: str) -> None:
+    @classmethod
+    def playSound(cls, filename: str) -> None:
         """
         Проиграть звуковой файл.
         :param filename: В качестве параметра необходимо указать имя файла с абсолютным путем
@@ -804,7 +813,8 @@ class brick:
         """
         return
 
-    def playTone(self, frequency: int, time: int) -> None:
+    @classmethod
+    def playTone(cls, frequency: int, time: int) -> None:
         """
         Проиграть звук с заданной частотой.
         :param frequency: Частота звука frequency
@@ -813,7 +823,8 @@ class brick:
         """
         return
 
-    def say(self, string: str) -> None:
+    @classmethod
+    def say(cls, string: str) -> None:
         """
         Произнести строку (на русском или английском языке).
         :param string: В качестве параметра необходимо указать строку на английском или русском языке.
@@ -821,7 +832,8 @@ class brick:
         """
         return
 
-    def sensor(self, portName: str) -> Sensor:
+    @classmethod
+    def sensor(cls, portName: str) -> Sensor:
         """
         Предоставляет доступ к сенсору на указанном порту
         :param portName: A1, …, A6, D1, D2
@@ -829,14 +841,16 @@ class brick:
         """
         return Sensor(portName)
 
-    def stop(self) -> None:
+    @classmethod
+    def stop(cls) -> None:
         """
         Останавливает все моторы и активные датчики, убирает нарисованное на дисплее.
         :return: None
         """
         return
 
-    def marker(self) -> Marker:
+    @classmethod
+    def marker(cls) -> Marker:
         """
         Предоставляет доступ к рисованию маркером заданного цвета на полу.
         Доступен только в режиме двумерной модели
@@ -849,8 +863,8 @@ class script:
     """
     Представляет методы управления выполнением скрипта и доступ к функциям операционной системы.
     """
-
-    def quit(self) -> None:
+    @classmethod
+    def quit(cls) -> None:
         """
         Устанавливает флаг окончания работы для событийно-ориентированной программы.
         Как только будет завершён текущий обработчик события, исполнение скрипта закончится.
@@ -858,7 +872,8 @@ class script:
         """
         return
 
-    def random(self, min: int, max: int) -> int:
+    @classmethod
+    def random(cls, min: int, max: int) -> int:
         """
         Возвращает случайное число из заданного диапазона.
         :param min: Левая граница диапазона
@@ -867,7 +882,8 @@ class script:
         """
         return 0
 
-    def readAll(self, fileName: str) -> list:
+    @classmethod
+    def readAll(cls, fileName: str) -> list:
         """
         Считывает всё содержимое указанного файла в массив строк.
         :param fileName: Имя файла
@@ -875,7 +891,8 @@ class script:
         """
         return list()
 
-    def removeFile(self, fileName: str) -> None:
+    @classmethod
+    def removeFile(cls, fileName: str) -> None:
         """
         Удаляет указанный файл.
         :param fileName: Имя файла
@@ -883,7 +900,8 @@ class script:
         """
         return
 
-    def run(self) -> None:
+    @classmethod
+    def run(cls) -> None:
         """
         Устанавливает флаг событийно-ориентированной программы.
         По окончанию работы скрипт не выгружается из памяти, а продолжает ждать наступления событий до тех пор,
@@ -892,21 +910,24 @@ class script:
         """
         return
 
-    def system(self) -> None:
+    @classmethod
+    def system(cls) -> None:
         """
         Выполняет переданную команду.
         :return: None
         """
         return
 
-    def time(self) -> int:
+    @classmethod
+    def time(cls) -> int:
         """
         Возвращает временной штамп — количество миллисекунд, прошедших с начала 1 января 1970 года по Гринвичу.
         :return: int
         """
         return 0
 
-    def wait(self, msCount: int) -> None:
+    @classmethod
+    def wait(cls, msCount: int) -> None:
         """
         Приостанавливает выполнение скрипта на переданное количество миллисекунд.
         :param msCount: Количество миллисекунд
@@ -914,7 +935,8 @@ class script:
         """
         return
 
-    def writeToFile(self, fileName: str, text: str) -> None:
+    @classmethod
+    def writeToFile(cls, fileName: str, text: str) -> None:
         """
         Записывает строку в файл.
         :param fileName: Имя файла
@@ -928,8 +950,8 @@ class mailbox:
     """
     Реализует связь между роботами в сети посредством механизма почтовых ящиков.
     """
-
-    def connect(self, ipAddress: str, port: int = 8888) -> None:
+    @classmethod
+    def connect(cls, ipAddress: str, port: int = 8888) -> None:
         """
         Подключается к роботу с заданным IP-адресом по заданному порту (или порту по умолчанию),
         сообщает ему свой бортовой номер и регистрируется в сети «почтовых ящиков».
@@ -939,28 +961,32 @@ class mailbox:
         """
         return
 
-    def hasMessages(self) -> bool:
+    @classmethod
+    def hasMessages(cls) -> bool:
         """
         Возвращает true, если роботу пришло новое сообщение.
         :return: bool
         """
         return False
 
-    def myHullNumber(self) -> int:
+    @classmethod
+    def myHullNumber(cls) -> int:
         """
         Возвращает бортовой номер робота.
         :return: int
         """
         return 0
 
-    def receive(self) -> str:
+    @classmethod
+    def receive(cls) -> str:
         """
         Получает новое сообщение или блокирует исполнение скрипта до тех пор, пока сообщение не придёт.
         :return: str
         """
         return str()
 
-    def send(self, *args) -> None:
+    @classmethod
+    def send(cls, *args) -> None:
         """
         Посылает роботу с указанным бортовым номером (или всем роботам) указанное сообщение.
         :param args: бортовой номер получателя (если он указан, иначе отправка всем), сообщение (обязательно)
@@ -975,7 +1001,8 @@ class gamepad:
     Служит для работы с программируемым пультом управления «TRIK Gamepad».
     """
 
-    def buttonWasPressed(self, buttonNumber: int) -> bool:
+    @classmethod
+    def buttonWasPressed(cls, buttonNumber: int) -> bool:
         """
         Возвращает true, если на пульте была нажата кнопка с указанным номером.
         Сбрасывает запомненное нажатие для этой кнопки.
@@ -984,7 +1011,8 @@ class gamepad:
         """
         return False
 
-    def isPadPressed(self, padId: int) -> bool:
+    @classmethod
+    def isPadPressed(cls, padId: int) -> bool:
         """
         Возвращает, нажата ли в данный момент область управления на пульте.
         Области управления имеют номера 0 и 1.
@@ -993,7 +1021,8 @@ class gamepad:
         """
         return False
 
-    def padX(self, padId: int) -> int:
+    @classmethod
+    def padX(cls, padId: int) -> int:
         """
         Если указанная область управления на пульте нажата, возвращает текущую x-координату нажатия.
         :param padId: В качестве параметра необходимо указать — номер области управления (0 или 1).
@@ -1001,7 +1030,8 @@ class gamepad:
         """
         return 0
 
-    def padY(self, padId: int) -> int:
+    @classmethod
+    def padY(cls, padId: int) -> int:
         """
         Если указанная область управления на пульте нажата, возвращает текущую y-координату нажатия.
         :param padId: В качестве параметра необходимо указать — номер области управления (0 или 1).
@@ -1009,14 +1039,16 @@ class gamepad:
         """
         return 0
 
-    def reset(self) -> None:
+    @classmethod
+    def reset(cls) -> None:
         """
         Сбрасывает запомненные события от пульта.
         :return: None
         """
         return
 
-    def wheel(self) -> int:
+    @classmethod
+    def wheel(cls) -> int:
         """
         Если на пульте включён «руль» (события от акселерометра устройства),
         возвращает текущий наклон пульта.

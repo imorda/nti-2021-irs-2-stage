@@ -64,14 +64,52 @@
                     <objectState object="robot1.display.labels.size"/>
                     <int value="0"/>
                 </greater>
-                <greater>
-                    <objectState object="robot1.display.labels.first.text"/>
-                    <string value="135"/>
-                </greater>
-                <less>
-                    <objectState object="robot1.display.labels.first.text"/>
-                    <string value="140"/>
-                </less>
+                <conditions glue="or">
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="135"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="136"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="137"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="138"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="139"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="140"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="141"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="142"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="143"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="144"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="145"/>
+                        </equals>
+                </conditions>
             </conditions>
             <trigger>
                 
@@ -85,16 +123,52 @@
                     <int value="0"/>
                 </greater>
                 <not>
-                    <conditions glue="and">
-                        <greater>
+                    <conditions glue="or">
+                        <equals>
                             <objectState object="robot1.display.labels.first.text"/>
-                            <string value="135"/>
-                        </greater>
-                        <less>
+                            <int value="135"/>
+                        </equals>
+                        <equals>
                             <objectState object="robot1.display.labels.first.text"/>
-                            <string value="140"/>
-                        </less>
-                    </conditions>
+                            <int value="136"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="137"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="138"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="139"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="140"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="141"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="142"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="143"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="144"/>
+                        </equals>
+                        <equals>
+                            <objectState object="robot1.display.labels.first.text"/>
+                            <int value="145"/>
+                        </equals>
+                </conditions>
                 </not>
             </conditions>
             <trigger>
